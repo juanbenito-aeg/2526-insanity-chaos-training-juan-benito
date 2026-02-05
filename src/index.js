@@ -11,13 +11,26 @@ async function start() {
   const mongoDbUri = process.env.MONGODB_URI || "";
   await mongoose.connect(mongoDbUri);
 
-  appData.warriors = warriors;
-  appData.weapons = weapons;
-  appData.epicMonths = epicMonths;
+  initializeAppData();
 
   assignWeapons();
 
   logWelcomeMessage();
+}
+
+function initializeAppData() {
+  appData.warriors = warriors;
+  appData.weapons = weapons;
+  appData.epicMonths = epicMonths;
+
+  appData.currentDateAndTime = {
+    month: epicMonths[0],
+    day: 30,
+    hour: "13:00",
+  };
+
+  appData.round = 1;
+  appData.currentWarriorIndex = appData.warriors[0];
 }
 
 function assignWeapons() {
