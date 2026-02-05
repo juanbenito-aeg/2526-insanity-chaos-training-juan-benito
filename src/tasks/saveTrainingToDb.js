@@ -12,7 +12,7 @@ async function saveTrainingToDb() {
 
     const warriorData = {
       name: warrior.name,
-      weaponName: warrior.weapon?.name || "No weapon assigned",
+      weaponName: warrior.weapon?.name || "",
       durability: warrior.weapon?.durability || -1,
       gold: warrior.gold,
       state,
