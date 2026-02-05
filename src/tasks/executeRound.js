@@ -161,7 +161,7 @@ function stopCronTasks() {
   const tasks = cron.getTasks();
 
   tasks.forEach((task) => {
-    task.stop();
+    task.destroy();
   });
 }
 
