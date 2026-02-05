@@ -1,0 +1,31 @@
+{
+  "name": "2526-insanity-chaos-training-juan-benito",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanbenito-aeg/2526-insanity-chaos-training-juan-benito.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/juanbenito-aeg/2526-insanity-chaos-training-juan-benito/issues"
+  },
+  "homepage": "https://github.com/juanbenito-aeg/2526-insanity-chaos-training-juan-benito#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "mongoose": "^9.1.6",
+    "node-cron": "^4.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
