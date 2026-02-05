@@ -15,8 +15,6 @@ function executeRound() {
     console.log("After training:");
     updateWeaponQualityAndDurability();
     console.log(`Gold remaining: ${appData.currentWarrior.gold}`);
-  } else {
-    appData.currentWarrior.state = "finished";
   }
 
   appData.round++;
@@ -94,6 +92,10 @@ function updateWeaponQualityAndDurability() {
     }
 
     weapon.durability -= durabilityToTake;
+
+    if (weapon.durability < 0) {
+      weapon.durability = 0;
+    }
   } else if (qualityToAdd === 3) {
     weapon.durability += Math.floor(Math.random() * 2) === 0 ? 1 : 0;
   }

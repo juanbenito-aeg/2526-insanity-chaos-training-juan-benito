@@ -5,6 +5,7 @@ const epicMonths = require("../public/epicMonths.json");
 const appData = require("./globals");
 const cron = require("node-cron");
 const executeRound = require("./tasks/executeRound");
+const saveTrainingToDb = require("./tasks/saveTrainingToDb");
 require("dotenv").config();
 
 start();
@@ -20,6 +21,7 @@ async function start() {
   logWelcomeMessage();
 
   cron.schedule("*/4 * * * * *", executeRound);
+  cron.schedule("*/30 * * * * *", saveTrainingToDb);
 }
 
 function initializeAppData() {
