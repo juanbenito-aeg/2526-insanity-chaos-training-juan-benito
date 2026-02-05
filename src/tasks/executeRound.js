@@ -16,6 +16,8 @@ function executeRound() {
     console.log("After training:");
     updateWeaponQualityAndDurability();
     console.log(`Gold remaining: ${appData.currentWarrior.gold}`);
+
+    fastForward();
   } else {
     appData.currentWarrior.state = "finished";
 
@@ -32,7 +34,6 @@ function executeRound() {
 
   appData.round++;
   setNextWarrior();
-  // TODO: Fast forward
 }
 
 function getCanCurrentWarriorTrain() {
@@ -114,6 +115,45 @@ function updateWeaponQualityAndDurability() {
   }
 
   console.log(`Durability: ${weapon.durability}`);
+}
+
+function fastForward() {
+  const currentHourAsNumber = +appData.currentDateAndTime.hour.split(":")[0];
+
+  let newHour = currentHourAsNumber + 2;
+
+  if (newHour >= 24) {
+    newHour = newHour - 24;
+
+    let newDay = appData.currentDateAndTime.day + 1;
+
+    if (newDay > 30) {
+      newDay = 1;
+
+      const currentMonthIndex = appData.epicMonths.indexOf(
+        appData.currentDateAndTime.month,
+      );
+
+      const newMonth =
+        currentMonthIndex === appData.epicMonths.length - 1
+          ? appData.epicMonths[0]
+          : appData.epicMonths[currentMonthIndex + 1];
+
+      appData.currentDateAndTime.month = newMonth;
+    }
+
+    appData.currentDateAndTime.day = newDay;
+  }
+
+  if (newHour < 10) {
+    newHourAsString = "0" + newHour;
+  } else {
+    newHourAsString = "" + newHour;
+  }
+
+  newHourAsString += ":00";
+
+  appData.currentDateAndTime.hour = newHourAsString;
 }
 
 function stopCronTasks() {
