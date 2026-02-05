@@ -1,5 +1,6 @@
 const appData = require("../globals");
 const { rollDice } = require("../utils");
+const cron = require("node-cron");
 
 function executeRound() {
   console.log(
@@ -15,6 +16,18 @@ function executeRound() {
     console.log("After training:");
     updateWeaponQualityAndDurability();
     console.log(`Gold remaining: ${appData.currentWarrior.gold}`);
+  } else {
+    appData.currentWarrior.state = "finished";
+
+    const areWarriorsFinishedTraining = appData.warriors.every(
+      (warrior) => warrior.state === "finished",
+    );
+
+    if (areWarriorsFinishedTraining) {
+      console.log("\nAll warriors have finished training. Stopping all crons");
+
+      stopCronTasks();
+    }
   }
 
   appData.round++;
@@ -101,6 +114,14 @@ function updateWeaponQualityAndDurability() {
   }
 
   console.log(`Durability: ${weapon.durability}`);
+}
+
+function stopCronTasks() {
+  const tasks = cron.getTasks();
+
+  tasks.forEach((task) => {
+    task.stop();
+  });
 }
 
 function setNextWarrior() {
