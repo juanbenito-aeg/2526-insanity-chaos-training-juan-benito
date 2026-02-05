@@ -3,6 +3,8 @@ const warriors = require("../public/warriors.json");
 const weapons = require("../public/weapons.json");
 const epicMonths = require("../public/epicMonths.json");
 const appData = require("./globals");
+const cron = require("node-cron");
+const executeRound = require("./tasks/executeRound");
 require("dotenv").config();
 
 start();
@@ -16,6 +18,8 @@ async function start() {
   assignWeapons();
 
   logWelcomeMessage();
+
+  cron.schedule("*/4 * * * * *", executeRound);
 }
 
 function initializeAppData() {
@@ -30,7 +34,7 @@ function initializeAppData() {
   };
 
   appData.round = 1;
-  appData.currentWarriorIndex = appData.warriors[0];
+  appData.currentWarrior = appData.warriors[0];
 }
 
 function assignWeapons() {
