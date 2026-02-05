@@ -95,7 +95,7 @@ function updateWeaponQualityAndDurability() {
     if (qualityToAdd < 0) {
       durabilityToTake = Math.floor(weapon.durability * 0.2);
     } else {
-      durabilityToTake = Math.floor(weapon.durability * 0.1) * qualityToAdd;
+      durabilityToTake = Math.floor(weapon.durability * (0.1 * qualityToAdd));
     }
 
     if (durabilityToTake < 1) {
@@ -111,7 +111,7 @@ function updateWeaponQualityAndDurability() {
     if (weapon.durability < 0) {
       weapon.durability = 0;
     }
-  } else if (qualityToAdd === 3) {
+  } else {
     weapon.durability += Math.floor(Math.random() * 2) === 0 ? 1 : 0;
   }
 

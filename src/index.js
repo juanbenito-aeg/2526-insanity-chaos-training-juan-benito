@@ -53,6 +53,7 @@ function assignWeapons() {
       if (isEveryWeaponDiscarded) {
         isAssignmentComplete = true;
       } else {
+        // TODO: CREAR FUNCIÓN QUE BUSQUE UNA RANDOM WEAPON CON isDiscarded = false
         const randomWeapon =
           appData.weapons[Math.floor(Math.random() * appData.weapons.length)];
 
