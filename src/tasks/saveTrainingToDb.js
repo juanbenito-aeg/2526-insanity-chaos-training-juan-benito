@@ -27,7 +27,7 @@ async function saveTrainingToDb() {
 }
 
 function hasEnoughGold(warrior) {
-  const hasEnoughGold = warrior.gold >= warrior.weapon.cost / 10;
+  const hasEnoughGold = warrior.gold >= Math.ceil(warrior.weapon.cost / 10);
   return hasEnoughGold;
 }
 

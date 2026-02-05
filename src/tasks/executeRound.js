@@ -49,7 +49,8 @@ function getCanCurrentWarriorTrain() {
     );
   } else {
     const hasEnoughGold =
-      appData.currentWarrior.gold >= appData.currentWarrior.weapon.cost / 10;
+      appData.currentWarrior.gold >=
+      Math.ceil(appData.currentWarrior.weapon.cost / 10);
 
     if (!hasEnoughGold) {
       console.log(
@@ -75,7 +76,7 @@ function logWarriorAndWeaponAttributes() {
 }
 
 function takeTrainingCostFromWarrior() {
-  const trainingCost = appData.currentWarrior.weapon.cost / 10;
+  const trainingCost = Math.ceil(appData.currentWarrior.weapon.cost / 10);
   appData.currentWarrior.gold -= trainingCost;
   console.log(`Cost of training this round: ${trainingCost}\n`);
 }
