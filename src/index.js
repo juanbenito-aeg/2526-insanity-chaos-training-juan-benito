@@ -53,8 +53,7 @@ function assignWeapons() {
       if (isEveryWeaponDiscarded) {
         isAssignmentComplete = true;
       } else {
-        const randomWeapon =
-          appData.weapons[Math.floor(Math.random() * appData.weapons.length)];
+        const randomWeapon = getNonDiscardedRandomWeapon();
 
         if (warrior.strength >= randomWeapon.minStrength) {
           warrior.weapon = appData.weapons.splice(
@@ -73,6 +72,17 @@ function assignWeapons() {
       delete weapon.isDiscarded;
     });
   });
+}
+
+function getNonDiscardedRandomWeapon() {
+  let randomWeapon;
+
+  do {
+    randomWeapon =
+      appData.weapons[Math.floor(Math.random() * appData.weapons.length)];
+  } while (randomWeapon.isDiscarded);
+
+  return randomWeapon;
 }
 
 function logWelcomeMessage() {
