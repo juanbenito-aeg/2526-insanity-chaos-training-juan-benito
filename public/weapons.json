@@ -1,0 +1,12 @@
+[
+  { "name": "Longsword", "type": "Sword", "quality": 1, "minStrength": 40, "cost": 50, "durability": 12 },
+  { "name": "Battle Axe", "type": "Axe", "quality": 2, "minStrength": 60, "cost": 90, "durability": 15 },
+  { "name": "Shadow Dagger", "type": "Dagger", "quality": 3, "minStrength": 30, "cost": 110, "durability": 8 },
+  { "name": "Dwarven Hammer", "type": "Hammer", "quality": 4, "minStrength": 80, "cost": 200, "durability": 18 },
+  { "name": "Longbow", "type": "Bow", "quality": 1, "minStrength": 35, "cost": 60, "durability": 10 },
+  { "name": "Guard Spear", "type": "Spear", "quality": 2, "minStrength": 50, "cost": 75, "durability": 14 },
+  { "name": "Northern Greatsword", "type": "Greatsword", "quality": 3, "minStrength": 70, "cost": 160, "durability": 16 },
+  { "name": "Blessed Mace", "type": "Mace", "quality": 4, "minStrength": 65, "cost": 190, "durability": 17 },
+  { "name": "Heavy Crossbow", "type": "Crossbow", "quality": 2, "minStrength": 55, "cost": 100, "durability": 11 },
+  { "name": "Ancient Blade", "type": "Sword", "quality": 5, "minStrength": 85, "cost": 300, "durability": 20 }
+]
