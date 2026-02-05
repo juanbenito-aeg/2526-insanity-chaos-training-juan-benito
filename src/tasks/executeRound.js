@@ -98,7 +98,7 @@ function updateWeaponQualityAndDurability() {
       durabilityToTake = Math.floor(weapon.durability * (0.1 * qualityToAdd));
     }
 
-    if (durabilityToTake < 1) {
+    if (durabilityToTake > 0 && durabilityToTake < 1) {
       durabilityToTake = 1;
     }
 
